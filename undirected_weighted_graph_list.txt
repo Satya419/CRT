@@ -1,0 +1,43 @@
+undirected weighted graph using list
+
+def addNode(v):
+    if v in graphs:
+        print(v,"is already available")
+    else:
+        graphs[v]=[]
+def addEdge(node1,node2,w):
+    if node1 not in graphs:
+        print(node1,"not available")
+    elif node2 not in graphs:
+        print(node2,"not available")
+    else:
+        temp=[]
+        temp.append(node2)
+        temp.append(w)
+        graphs[node1].append(temp)
+        temp1=[]
+        temp1.append(node1)
+        temp1.append(w)
+        graphs[node2].append(temp1)
+def show():
+    for x in graphs:
+        print(x,":",graphs[x])
+graphs={}
+while True:
+    print()
+    print("1.addNode\n2.addEdge\n3.Show\n4.Exit")
+    ch=int(input("Enter your choice"))
+    if ch==1:
+        x=input("Enter a Node")
+        addNode(x)
+    elif ch==2:
+        node1=input("enter node1:")
+        node2=input("enter node2:")
+        w=int(input("enter weight"))
+        addEdge(node1,node2,w)
+    elif ch==3:
+        show()
+    elif ch==4:
+        break
+    else:
+        print("invalid choice")
